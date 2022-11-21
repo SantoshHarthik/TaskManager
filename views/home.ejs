@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task Manager</title>
+    <style>
+        @media only screen and (max-width: 800) {
+            .divii {
+                width:90%;
+                /* margin:10% 32%; */
+                padding: 4% 2%;
+                background-color: rgb(245, 249, 249);
+            }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <br>
+    <div class="div text-center" style="width: 100%; height:50px;">
+        <h1>Task Manager</h1>
+    </div>
+    <div class="div text-center divii"
+        style="width:35% ; margin:10% 32%; padding: 4% 2% ; background-color:rgb(247, 249, 245); border-radius:10px">
+        <form action="/alltasks" method="post">
+            <div class="mb-2 form-group">
+                <label for="name" class="form-label"></label>
+                <input type="text" required name="name" class="form-label" placeholder="Task"
+                    style="width:90%; height: 36px; border-radius: 10px;">
+            </div>
+            <button type="submit" class="btn btn-secondary btn-sm mb-4 form-group">Add-Task</button>
+        </form>
+        <div class="card" style="width: 90%; margin: auto; border-radius: 10px;">
+            <% for(var i=0;i<taskdata.length;i++){ %>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-start" style="background-color: rgba(253, 253, 251, 0.1); ">
+                            <div class="d-flex">
+                                <div class="p-2 w-100"> <%= taskdata[i].name %></div>
+                                <div class="p-2 flex-shrink-1"><a href="/alltasks/<%=taskdata[i]._id %> " class="btn btn-sm btn-secondary">Delete</a></div>
+                                    
+            
+                              </div>
+                    </li>
+                </ul>
+                <% } %>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
